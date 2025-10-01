@@ -20,8 +20,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                 else if(!f){
                     f = true;
                     t = !t;
-
-                    mo.setPower((t) ? 0.5:0.0);
+                        //mo.setPower((t) ? (-gamepad1.left_stick_y):0.0);
+                }
+                if(t){
+                    mo.setPower(gamepad1.left_stick_y);
+                }
+                else if(!t){
+                    mo.setPower(0.0);
                 }
                 // OpMode loop
             }
