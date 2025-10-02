@@ -11,8 +11,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
         waitForStart();
         if (opModeIsActive()) {
             mo = hardwareMap.get(DcMotor.class, "0");
-
-            // Pre-run
             while (opModeIsActive()) {
                 if(!gamepad1.x){
                     f = false;
@@ -23,12 +21,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                         //mo.setPower((t) ? (-gamepad1.left_stick_y):0.0);
                 }
                 if(t){
-                    mo.setPower(gamepad1.left_stick_y);
+                    mo.setPower(gamepad1.left_stick_y);//gamepad1.x 가 눌렸을 때 gamepad1.left_stick_y의 값을 받아 작동ㅇ
                 }
                 else if(!t){
                     mo.setPower(0.0);
                 }
-                // OpMode loop
             }
         }
     }
